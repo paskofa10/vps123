@@ -232,7 +232,7 @@ create_new_vm() {
     done
 
     while true; do
-        SSH_PORT="${SSH_PORT:-234}"
+        SSH_PORT="${SSH_PORT:-1234}"
         if validate_input "port" "$SSH_PORT"; then
             # Check if port is already in use
             if ss -tln 2>/dev/null | grep -q ":$SSH_PORT "; then
