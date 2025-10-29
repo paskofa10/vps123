@@ -232,7 +232,6 @@ create_new_vm() {
     done
 
     while true; do
-        read -p "$(print_status "INPUT" "SSH Port (default: 2222): ")" SSH_PORT
         SSH_PORT="${SSH_PORT:-2222}"
         if validate_input "port" "$SSH_PORT"; then
             # Check if port is already in use
