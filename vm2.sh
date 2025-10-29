@@ -175,7 +175,6 @@ create_new_vm() {
 
     # Custom Inputs with validation
     while true; do
-        read -p "$(print_status "INPUT" "Enter VM name (default: $DEFAULT_HOSTNAME): ")" VM_NAME
         VM_NAME="${VM_NAME:-$DEFAULT_HOSTNAME}"
         if validate_input "name" "$VM_NAME"; then
             # Check if VM name already exists
@@ -188,7 +187,6 @@ create_new_vm() {
     done
 
     while true; do
-        read -p "$(print_status "INPUT" "Enter hostname (default: $VM_NAME): ")" HOSTNAME
         HOSTNAME="${HOSTNAME:-$VM_NAME}"
         if validate_input "name" "$HOSTNAME"; then
             break
@@ -196,7 +194,6 @@ create_new_vm() {
     done
 
     while true; do
-        read -p "$(print_status "INPUT" "Enter username (default: $DEFAULT_USERNAME): ")" USERNAME
         USERNAME="${USERNAME:-$DEFAULT_USERNAME}"
         if validate_input "username" "$USERNAME"; then
             break
@@ -204,7 +201,6 @@ create_new_vm() {
     done
 
     while true; do
-        read -s -p "$(print_status "INPUT" "Enter password (default: $DEFAULT_PASSWORD): ")" PASSWORD
         PASSWORD="${PASSWORD:-$DEFAULT_PASSWORD}"
         echo
         if [ -n "$PASSWORD" ]; then
@@ -215,7 +211,6 @@ create_new_vm() {
     done
 
     while true; do
-        read -p "$(print_status "INPUT" "Disk size (default: 120G): ")" DISK_SIZE
         DISK_SIZE="${DISK_SIZE:-120G}"
         if validate_input "size" "$DISK_SIZE"; then
             break
@@ -223,7 +218,6 @@ create_new_vm() {
     done
 
     while true; do
-        read -p "$(print_status "INPUT" "Memory in MB (default: 32768): ")" MEMORY
         MEMORY="${MEMORY:-32768}"
         if validate_input "number" "$MEMORY"; then
             break
@@ -231,7 +225,6 @@ create_new_vm() {
     done
 
     while true; do
-        read -p "$(print_status "INPUT" "Number of CPUs (default: 7): ")" CPUS
         CPUS="${CPUS:-7}"
         if validate_input "number" "$CPUS"; then
             break
@@ -239,7 +232,6 @@ create_new_vm() {
     done
 
     while true; do
-        read -p "$(print_status "INPUT" "SSH Port (default: 2222): ")" SSH_PORT
         SSH_PORT="${SSH_PORT:-2222}"
         if validate_input "port" "$SSH_PORT"; then
             # Check if port is already in use
@@ -252,7 +244,6 @@ create_new_vm() {
     done
 
     while true; do
-        read -p "$(print_status "INPUT" "Enable GUI mode? (y/n, default: n): ")" gui_input
         GUI_MODE=false
         gui_input="${gui_input:-n}"
         if [[ "$gui_input" =~ ^[Yy]$ ]]; then 
@@ -266,8 +257,7 @@ create_new_vm() {
     done
 
     # Additional network options
-    read -p "$(print_status "INPUT" "Additional port forwards (e.g., 8080:80, press Enter for none): ")" PORT_FORWARDS
-
+    
     IMG_FILE="$VM_DIR/$VM_NAME.img"
     SEED_FILE="$VM_DIR/$VM_NAME-seed.iso"
     CREATED="$(date)"
