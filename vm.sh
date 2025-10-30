@@ -196,16 +196,16 @@ create_new_vm() {
     done
 
     while true; do
-        read -p "$(print_status "INPUT" "Enter username (default: $DEFAULT_USERNAME): ")" USERNAME
-        USERNAME="${USERNAME:-$DEFAULT_USERNAME}"
+        read -p "$(print_status "INPUT" "Enter username (default: suto): ")" USERNAME
+        USERNAME="${USERNAME:-suto}"
         if validate_input "username" "$USERNAME"; then
             break
         fi
     done
 
     while true; do
-        read -s -p "$(print_status "INPUT" "Enter password (default: $DEFAULT_PASSWORD): ")" PASSWORD
-        PASSWORD="${PASSWORD:-$DEFAULT_PASSWORD}"
+        read -s -p "$(print_status "INPUT" "Enter password (default: suto): ")" PASSWORD
+        PASSWORD="${PASSWORD:-suto}"
         echo
         if [ -n "$PASSWORD" ]; then
             break
