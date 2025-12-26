@@ -223,16 +223,16 @@ create_new_vm() {
     done
 
     while true; do
-        read -p "$(print_status "INPUT" "Memory in MB (default: 30000): ")" MEMORY
-        MEMORY="${MEMORY:-30000}"
+        read -p "$(print_status "INPUT" "Memory in MB (default: 32768): ")" MEMORY
+        MEMORY="${MEMORY:-32768}"
         if validate_input "number" "$MEMORY"; then
             break
         fi
     done
 
     while true; do
-        read -p "$(print_status "INPUT" "Number of CPUs (default: 6): ")" CPUS
-        CPUS="${CPUS:-6}"
+        read -p "$(print_status "INPUT" "Number of CPUs (default: 7): ")" CPUS
+        CPUS="${CPUS:-7}"
         if validate_input "number" "$CPUS"; then
             break
         fi
