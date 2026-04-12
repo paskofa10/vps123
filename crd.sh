@@ -1,7 +1,7 @@
 #!/bin/bash
 
-username="gibhq"
-password="gibhq"
+username="suto"
+password="suto"
 sudo useradd -m "$username" > /dev/null 2>&1
 sudo adduser "$username" sudo > /dev/null 2>&1
 echo "$username:$password" | sudo chpasswd > /dev/null 2>&1
